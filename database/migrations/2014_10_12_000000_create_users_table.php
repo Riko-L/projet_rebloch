@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('genre');
             $table->string('name');
-            $table->text('image_link')->default('/storage/images/default.jpeg');
+            $table->string('image_link');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

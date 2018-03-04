@@ -19,7 +19,7 @@ class FluxController extends Controller
      */
     public function index()
     {
-        //
+        return view('flux');
     }
 
     /**
@@ -29,7 +29,7 @@ class FluxController extends Controller
      */
     public function create()
     {
-        return view('flux');
+
     }
 
     /**

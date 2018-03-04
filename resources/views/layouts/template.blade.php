@@ -31,9 +31,6 @@ NAVIGATION
             <i class="material-icons">menu</i>
         </a>
         @if (Route::has('login'))
-
-
-
             <ul class="right hide-on-med-and-down">
                 @auth
                     <li>
@@ -121,6 +118,11 @@ HEADER
 <header class="container">
     <div class="row">
         <div class="col l12 s12 center-align">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             @yield('page_title')
         </div>
     </div>

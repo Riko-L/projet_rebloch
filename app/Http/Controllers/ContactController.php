@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class SearchController extends Controller
+class ContactController extends Controller
 {
-
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +15,7 @@ class SearchController extends Controller
      */
     public function index()
     {
-        return view('search');
+        return view('contact');
     }
 
     /**
@@ -28,15 +23,31 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function send(Request $request)
     {
 
+        $data = [
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message'),
+
+        ];
+
+        Mail::to('ledevedec.eric@gmail.com')->send(new SendContact($data));
+    }
+
+
+    public function create()
+    {
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +58,7 @@ class SearchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +69,7 @@ class SearchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -69,8 +80,8 @@ class SearchController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +92,7 @@ class SearchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

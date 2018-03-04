@@ -19,7 +19,7 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        //
+        return view('profil');
     }
 
     /**
@@ -29,7 +29,7 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        return view('profil');
+
     }
 
     /**

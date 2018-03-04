@@ -16,7 +16,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <img src="{{ asset( Auth::user()->image_link ) }}" alt="imageProfil">
                 </div>
             </div>
         </div>

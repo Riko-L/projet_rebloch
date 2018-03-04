@@ -22,35 +22,37 @@
 
         </section>
 
-        <form class="col l6 s12">
+        <form class="col l6 s12" method="POST">
+            @csrf
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_last_name" type="text" class="validate">
-                    <label for="icon_last_name">Nom</label>
+                    <input id="lastname" name="lastname" type="text" class="validate" required>
+                    <label for="lastnamename">Nom</label>
                 </div>
 
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_first_name" type="text" class="validate">
-                    <label for="icon_first_name">Prénom</label>
+                    <input id="firstname" name="firstname" type="text" class="validate">
+                    <label for="firstname">Prénom</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input id="icon_email" type="email" class="validate">
-                    <label for="icon_email">email</label>
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">E-mail</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">message</i>
-                    <textarea id="textarea1" class="materialize-textarea" data-length="500" maxlength="500"></textarea>
-                    <label for="textarea1">Votre message</label>
+                    <textarea id="message" name="message" class="materialize-textarea" data-length="500" maxlength="500"
+                              required></textarea>
+                    <label for="message">Votre message</label>
                 </div>
             </div>
             <div class="row center-align">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+                <button class="btn waves-effect waves-light" type="submit" name="send">Envoyer
                     <i class="material-icons right">send</i>
                 </button>
             </div>
