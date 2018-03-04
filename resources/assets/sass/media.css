@@ -1,0 +1,24 @@
+@media screen and (max-width:520px) {
+    h1 {
+        font-size:3em;
+    }
+    h2 {
+        font-size:2em;
+    }
+    
+    h3 {
+        font-size:2em;
+    }
+
+    .navbar-material .nav-wrapper .brand-logo {
+        font-size: 1.6em;
+    }
+}
+
+
+@media screen and (max-width:360px) {
+
+    .navbar-material .nav-wrapper .brand-logo {
+        font-size: 1.3em;
+    }
+}

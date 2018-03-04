@@ -1,0 +1,33 @@
+.navbar-material .nav-wrapper .brand-logo {
+  padding-left: 2em;
+}
+
+.follow > a {
+  margin: 0 1rem;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+.titre {
+  margin: 0.5em 0;
+}
+
+.mytweet {
+  height: 250px;
+  border-radius: 5px;
+}
+
+.form p {
+  color: red;
+}
+
