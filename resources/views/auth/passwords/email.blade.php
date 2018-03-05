@@ -15,12 +15,12 @@
 
             <div class="card">
                 <div class="card-title">Initialisation du mot de passe</div>
-                <div class="card-content ">
-                    @if (session('status'))
-                        <div class="">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                {{--<div class="card-content ">--}}
+                {{--@if (session('status'))--}}
+                {{--<div class="">--}}
+                {{--{{ session('status') }}--}}
+                {{--</div>--}}
+                {{--@endif--}}
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf

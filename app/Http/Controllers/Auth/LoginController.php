@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profil';
 
     /**
      * Create a new controller instance.
@@ -36,4 +36,23 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function redirectPath()
+    {
+
+        session()->flash('status', 'Bienvenue sur rebloch\' Social');
+
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        // Do your logic to flash data to session...
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+
+
+        // Return the results of the method we are overriding that we aliased.
+
+    }
+
 }

@@ -30,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-    protected $imageUrl = null;
+    protected $imageName;
 
     /**
      * Create a new controller instance.
@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
 
@@ -71,27 +71,46 @@ class RegisterController extends Controller
     protected function create(array $data)
 
     {
-        $this->storeImageProfil($data['image']);
-
-
-        return User::create([
+        $user = (new User)
+            ->create([
             'genre' => $data['genre'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'image_link' => $this->imageUrl,
+                'image_name' => $this->imageName,
         ]);
+
+        $id = $user->id;
+
+        $this->storeImageProfil($data, $id);
+
+        $user->image_name = $this->imageName;
+
+        $user->save();
+
+
+        return $user;
     }
 
 
-    protected function storeImageProfil($image)
+    protected function storeImageProfil($data, $id)
     {
 
-        $imageName = 'profil_' . time() . '.' . $image->getClientOriginalExtension();
+        if (isset($data['image'])) {
 
-        $image->storeAs('profils', $imageName);
 
-        $this->imageUrl = Storage::url("profils/$imageName");
+            $image = $data['image'];
+
+            $imageName = 'profil_' . time() . '.' . $image->getClientOriginalExtension();
+
+            $image->storeAs('/images/profils/' . $id . '/', $imageName);
+
+            $this->imageName = $imageName;
+
+
+        }
+
+
 
     }
 }

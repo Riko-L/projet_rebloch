@@ -26,6 +26,8 @@ Route::get('/search', 'SearchController@index')->name('search');
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@send');
 
+Route::get('/img/profil/{id}', 'ImageController@profilPicture')->name('imageProfile');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
