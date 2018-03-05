@@ -10,7 +10,7 @@
 <body>
 <h1>Demande de renseignement</h1>
 <h2>Message de <strong>{{ $firstname }}</strong></h2>
-<p>{{ $message }}</p>
+<p>{{ $mess }}</p>
 </body>
 </html>
 

@@ -55,7 +55,7 @@
                         </button>
 
                         <a class="btn waves-effect waves-light" href="{{ route('password.request') }}"
-                           name="submit_reset">MOT DE PASSE OUBLIER
+                           name="submit_reset">MOT DE PASSE OUBLIE
                             <i class="material-icons right">send</i>
                         </a>
                     </div>

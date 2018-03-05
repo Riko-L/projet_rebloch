@@ -36,6 +36,8 @@ class ContactController extends Controller
         ];
 
         Mail::to('ledevedec.eric@gmail.com')->send(new SendContact($data));
+        //@TODO Essayer de faire apparaitre le message dans la vue welcome
+        return view('welcome')->with('status' , 'Votre message à bien été envoyé !');
     }
 
 

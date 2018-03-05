@@ -119,7 +119,7 @@ HEADER
     <div class="row">
         <div class="col l12 s12 center-align">
             @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert_info">
                     {{ session('status') }}
                 </div>
             @endif

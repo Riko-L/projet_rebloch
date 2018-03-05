@@ -21,7 +21,7 @@ class SendContact extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct(array $data)
     {
         $this->data = $data;
     }
@@ -35,10 +35,11 @@ class SendContact extends Mailable
     {
         //@TODO regarder le probleme d'email
 
-        return $this->view('emails.contact')
+        return $this->from('admin@localhost')
+            ->view('emails.contact')
             ->with([
-                'firstname' => $this->data->firstname,
-                'message' => $this->data->message
+                'firstname' => $this->data['firstname'],
+                'mess' => $this->data['message']
             ]);
     }
 }
