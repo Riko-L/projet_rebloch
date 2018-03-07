@@ -1,4 +1,6 @@
 {
+  "/js/materialize.js": "/js/materialize.js",
     "/js/script.js": "/js/script.js",
-    "/css/style.css": "/css/style.css"
+  "/css/style.css": "/css/style.css",
+  "/css/materialize.css": "/css/materialize.css"
 }

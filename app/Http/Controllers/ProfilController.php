@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
+
 
 class ProfilController extends Controller
 {
@@ -12,14 +17,19 @@ class ProfilController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index(User $id)
     {
-        return view('profil');
+
+        return view('profil')->with(['user' => $id]);
+
     }
 
     /**

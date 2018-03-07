@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profil';
     protected $imageName;
 
     /**
@@ -107,10 +107,24 @@ class RegisterController extends Controller
 
             $this->imageName = $imageName;
 
+        }
+    }
 
+
+    public function redirectPath()
+    {
+
+        session()->flash('status', 'Bienvenue sur rebloch\' Social');
+
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
         }
 
+        // Do your logic to flash data to session...
 
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
 
     }
+
+
 }

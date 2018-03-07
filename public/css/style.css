@@ -1,3 +1,4 @@
+/*
 .navbar-material .nav-wrapper .brand-logo {
   padding-left: 2em;
 }
@@ -32,7 +33,12 @@ h3 {
 }
 
 .alert_info {
+
   color: darkturquoise;
   background-color: grey;
+}*/
+
+#head_profil {
+    height: 12em;
 }
 

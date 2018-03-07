@@ -18,11 +18,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profil', 'ProfilController@index')->name('profil');
+Route::get('/profil/{id}', 'ProfilController@index')->name('profilID');
 Route::get('/compte', 'CompteController@index')->name('compte');
 Route::get('/flux', 'FluxController@index')->name('flux');
 Route::get('/search', 'SearchController@index')->name('search');
-
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@send');
 

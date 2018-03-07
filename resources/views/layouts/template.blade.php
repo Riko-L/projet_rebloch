@@ -10,7 +10,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{asset('css/materialize.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href={{asset("css/style.css")}}>
     <link rel="stylesheet" href={{asset("css/media.css")}}>
@@ -23,7 +23,7 @@
 <!-------------------------------------------------------------------
 NAVIGATION
 -------------------------------------------------------------------->
-<nav class="navbar-material teal lighten-2">
+<nav class="navbar-material">
     <div class="nav-wrapper">
         <a href="{{ route('welcome') }}" class="brand-logo">Rebloch' Social</a>
 
@@ -34,7 +34,7 @@ NAVIGATION
             <ul class="right hide-on-med-and-down">
                 @auth
                     <li>
-                        <a href="{{ route('profil') }}">{{ Auth::user()->name  }}</a>
+                        <a href="{{ route('profilID',Auth::user()->id) }}">{{ Auth::user()->name  }}</a>
                     </li>
                     <li>
                         <a href="{{ route('compte') }}">Compte</a>
@@ -74,9 +74,9 @@ NAVIGATION
         <ul class="side-nav" id="mobile">
             @auth
                 <li>
-                    <a href="{{ route('profil') }}">Mon Profil</a>
+                    <a href="{{ route('profilID',Auth::user()->id ) }}">Mon Profil</a>
                 </li>
-                <li class=>
+                <li>
                     <a href="{{ route('compte') }}">Compte</a>
                 </li>
                 <li>
@@ -100,13 +100,9 @@ NAVIGATION
             @auth
                 <li>
                     <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
+                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                        @csrf</form>
                 </li>
             @endauth
         </ul>
@@ -119,7 +115,7 @@ HEADER
     <div class="row">
         <div class="col l12 s12 center-align">
             @if (session('status'))
-                <div class="alert_info">
+                <div class="card-panel">
                     {{ session('status') }}
                 </div>
             @endif
@@ -141,14 +137,14 @@ PARTIE PRINCIPALE DE LA PAGE
 FOOTER
 -------------------------------------------------------------------->
 
-<footer class="page-footer teal lighten-2">
+<footer class="page-footer blue-grey lighten-2">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Robloch' Social</h5>
+                <h5>Robloch' Social</h5>
                 <div class="row">
                     <div class="col l6">
-                        <address class="grey-text text-lighten-4">
+                        <address>
                             <h6>Rebloch' Social:</h6>
                             <p>27 Route du Pont, 74000 ANNECY
                                 <br> Tel: 04 50 88 00 00
@@ -163,30 +159,30 @@ FOOTER
 
             </div>
             <div class="col l3 s6">
-                <h5 class="white-text">Site map</h5>
+                <h5>Site map</h5>
                 <ul>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('profil') }}">Profil</a>
+                        <a href="{{ route('profilID', Auth::user()->id ) }}">Profil</a>
                     </li>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('flux') }}">Flux</a>
+                        <a href="{{ route('flux') }}">Flux</a>
                     </li>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('contact') }}">Contact</a>
+                        <a href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('search')}}">Recherche</a>
+                        <a href="{{ route('search')}}">Recherche</a>
                     </li>
                 </ul>
             </div>
             <div class="col l3 s6">
-                <h5 class="white-text">Légales</h5>
+                <h5>Légales</h5>
                 <ul>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('legale') }}">Mentions Légales</a>
+                        <a href="{{ route('legale') }}">Mentions Légales</a>
                     </li>
                     <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('cgv') }}">Conditions Générales</a>
+                        <a href="{{ route('cgv') }}">Conditions Générales</a>
                     </li>
                 </ul>
             </div>
@@ -197,7 +193,7 @@ FOOTER
     <div class="footer-copyright">
         <div class="container">
             © 2018 Rebloch' Social
-            <a class="grey-text text-lighten-4 right" href="#!">Intranet</a>
+            <a href="#!">Intranet</a>
         </div>
     </div>
 </footer>
@@ -207,6 +203,7 @@ FOOTER
 Script
  -------------------------------------------------------------------->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+{{--<script src="{{ asset('js/materialize.js') }}"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="{{asset('js/script.js')}}"></script>
 </body>

@@ -15,24 +15,35 @@ class ImageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 
     public function profilPicture($id)
     {
         $pathImage = config('app.image_profil_path');
+        $pathDefault = config('app.default_profil_path');
 
+        switch ($id) {
 
-        if ($id == 0) {
+            case 'm' :
+                $storagePath = storage_path($pathDefault . 'default_profil_male.jpg');
+                break;
+            case 'f' :
+                $storagePath = storage_path($pathDefault . 'default_profil_female.jpg');
+                break;
+            case 'o' :
+                $storagePath = storage_path($pathDefault . 'default_profil_other.jpg');
+                break;
 
-            $storagePath = storage_path('app/public/images/default/default_profil.png');
-
-        } else {
-
-            $storagePath = storage_path($pathImage . $id . '/' . Auth::user()->image_name);
+            default :
+                $storagePath = storage_path($pathImage . $id . '/' . Auth::user()->image_name);
 
         }
 
-
-        return Image::make($storagePath)->response();
+        return Image::make($storagePath)->response('jpg');
     }
 
 

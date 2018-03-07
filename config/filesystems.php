@@ -40,7 +40,7 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
     |
     */
-
+    // @TODO regarder le path de stockage default image
     'disks' => [
 
         'local' => [

@@ -40,7 +40,7 @@ class LoginController extends Controller
     public function redirectPath()
     {
 
-        session()->flash('status', 'Bienvenue sur rebloch\' Social');
+        session()->flash('status', 'De retour sur rebloch\' Social');
 
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
@@ -49,9 +49,6 @@ class LoginController extends Controller
         // Do your logic to flash data to session...
 
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
-
-
-        // Return the results of the method we are overriding that we aliased.
 
     }
 

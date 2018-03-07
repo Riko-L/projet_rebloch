@@ -103,7 +103,10 @@ return [
    */
 
 
-    'image_profil_path' => env('APP_PATH_IMG_PROFIL'),
+    'image_profil_path' => env('APP_PATH_IMG_PROFIL', 'app/public/images/profils/'),
+
+
+    'default_profil_path' => env('APP_PATH_IMG_DEFAULT', 'app/public/default/'),
 
     /*
     |--------------------------------------------------------------------------

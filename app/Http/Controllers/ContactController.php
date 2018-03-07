@@ -13,6 +13,13 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        //@TODO test middleware pour la route contact
+        //$this->middleware('guest');
+    }
+
+
     public function index()
     {
         return view('contact');
@@ -26,7 +33,7 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
-
+        //@Todo faire une validation des champs.
         $data = [
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
