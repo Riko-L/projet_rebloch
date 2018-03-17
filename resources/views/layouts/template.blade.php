@@ -161,9 +161,11 @@ FOOTER
             <div class="col l3 s6">
                 <h5>Site map</h5>
                 <ul>
+                    @auth
                     <li>
                         <a href="{{ route('profilID', Auth::user()->id ) }}">Profil</a>
                     </li>
+                    @endauth
                     <li>
                         <a href="{{ route('flux') }}">Flux</a>
                     </li>

@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/profil';
+    protected $redirectTo = '/flux';
     protected $imageName;
 
     /**
@@ -122,7 +122,7 @@ class RegisterController extends Controller
 
         // Do your logic to flash data to session...
 
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/flux';
 
     }
 

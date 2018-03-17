@@ -30,9 +30,12 @@
                                 @case('other')
                                 {{ Request::getSchemeAndHttpHost().'/img/profil/o'}}
                                 @break
-                                @default
-                                {{ Request::getSchemeAndHttpHost().'/img/profil/'.$user->id }}
                                 @endswitch
+
+                                @else
+
+                                {{ Request::getSchemeAndHttpHost().'/img/profil/'.$user->id }}
+
                                 @endif" alt="image profil"></a>
                             <span class="blue-text ">{{$user->name}}</span>
                             <a class="btn-floating halfway-fab waves-effect waves-light red pulse"><i
@@ -48,7 +51,12 @@
         </div>
         <div id="head_profil" class="col l8 card-panel blue lighten-3">
             <h4>INFORMATION</h4>
+            @if(Auth::user()->id == $user->id)
             <p>Hello <strong>{{$user->name}}</strong> tu as des nouvelles. </p>
+            @else
+                <p>Profil de <strong>{{$user->name}}</strong></p>
+            @endif
+
         </div>
     </div> {{--end row--}}
     <div class="row">
