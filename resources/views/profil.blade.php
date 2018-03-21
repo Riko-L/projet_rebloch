@@ -17,7 +17,9 @@
                 <div class="col s12 m6">
                     <div class="card">
                         <div class="card-image">
-                            <a href="{{route('profilID', $user->id )}}"><img src="@if ($user->image_name === null)
+                            <a href="{{route('profilID', $user->id )}}">
+                                <img src="
+                                @if ($user->image_name === null)
 
                                 @switch($user->genre)
 
