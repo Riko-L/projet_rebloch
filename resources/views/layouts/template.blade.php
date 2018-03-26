@@ -34,7 +34,7 @@ NAVIGATION
             <ul class="right hide-on-med-and-down">
                 @auth
                     <li>
-                        <a href="{{ route('profilID',Auth::user()->id) }}">{{ Auth::user()->name  }}</a>
+                        <a href="{{ route('profilID',Auth::user()->id) }}">{{ Auth::user()->firstname  }}</a>
                     </li>
                     <li>
                         <a href="{{ route('compte') }}">Compte</a>
@@ -74,7 +74,7 @@ NAVIGATION
         <ul class="side-nav" id="mobile">
             @auth
                 <li>
-                    <a href="{{ route('profilID',Auth::user()->id ) }}">Mon Profil</a>
+                    <a href="{{ route('profilID',Auth::user()->id) }}">{{ Auth::user()->firstname  }}</a>
                 </li>
                 <li>
                     <a href="{{ route('compte') }}">Compte</a>
@@ -163,7 +163,7 @@ FOOTER
                 <ul>
                     @auth
                     <li>
-                        <a href="{{ route('profilID', Auth::user()->id ) }}">Profil</a>
+                        <a href="{{ route('profilID', Auth::user()->id ) }}">Mon profil</a>
                     </li>
                     @endauth
                     <li>

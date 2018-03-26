@@ -15,14 +15,14 @@
     <div class="row">
         <div class="col l6 s12 center-align">
             <h2>Nous Sommes</h2>
-            <img class="responsive-img" src="http://lorempixel.com/600/300/people" alt="photo_presentation">
+            <img class="responsive-img" src="https://lorempixel.com/600/300/people" alt="photo_presentation">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste tempore vero consequatur minima, corrupti officiis
                 quidem velit quam voluptates labore? Quam hic quas rem voluptate officia error dicta enim aperiam. </p>
         </div>
         <div class="col l6 s12 center-align">
             <h2>Le Network</h2>
-            <img class="responsive-img" src="http://lorempixel.com/300/150/abstract" alt="photo_presentation">
-            <img class="responsive-img" src="http://lorempixel.com/300/150/business" alt="photo_presentation">
+            <img class="responsive-img" src="https://lorempixel.com/300/150/abstract" alt="photo_presentation">
+            <img class="responsive-img" src="https://lorempixel.com/300/150/business" alt="photo_presentation">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste tempore vero consequatur minima, corrupti officiis
                 quidem velit quam voluptates labore? Quam hic quas rem voluptate officia error dicta enim aperiam. </p>
         </div>

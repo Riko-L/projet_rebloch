@@ -17,10 +17,10 @@
 
                 <div class="row">
                     <div class="input-field">
-                        <input name="name" id="name" type="text"
-                               value="{{ old('name') }}" class="validate" required autofocus>
-                        <label class="active" for="name">Nom</label>
-                        @if($errors->has('name')) <p> {{ $errors->first('name') }}</p> @endif
+                        <input name="lastname" id="lastname" type="text"
+                               value="{{ old('lastname') }}" class="validate" required autofocus>
+                        <label class="active" for="lastname">Nom</label>
+                        @if($errors->has('lastname')) <p> {{ $errors->first('lastname') }}</p> @endif
                     </div>
                 </div>
                 <div class="row">

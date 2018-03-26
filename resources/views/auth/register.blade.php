@@ -41,9 +41,18 @@
             </div>
             <div class="row">
                 <div class="input-field">
-                    <input name="name" id="name" type="text" value="{{ old('name') }} " class="validate" required>
-                    <label class="active" for="name">Nom</label>
-                    @if($errors->has('name'))<p>{{$errors->first('name') }}</p>@endif
+                    <input name="lastname" id="lastname" type="text" value="{{ old('lastname') }} " class="validate"
+                           required>
+                    <label class="active" for="lastname">Nom</label>
+                    @if($errors->has('lastname'))<p>{{$errors->first('lastname') }}</p>@endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input name="firstname" id="firstname" type="text" value="{{ old('firstname') }} " class="validate"
+                           required>
+                    <label class="active" for="firstname">Nom</label>
+                    @if($errors->has('firstname'))<p>{{$errors->first('firstname') }}</p>@endif
                 </div>
             </div>
             <div class="row">
