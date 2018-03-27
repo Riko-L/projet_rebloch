@@ -27,6 +27,11 @@ Route::post('/contact', 'ContactController@send');
 
 Route::get('/img/profil/{id}', 'ImageController@profilPicture')->name('imageProfile');
 
+Route::get('/profil/add_friend/{id}', 'ProfilController@getAddFriend')->name('addFriends');
+Route::get('/profil/remove_friend/{id}', 'ProfilController@getRemoveFriend')->name('removeFriends');
+
+
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');

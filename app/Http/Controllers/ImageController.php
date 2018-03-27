@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Support\Facades\App;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
@@ -23,8 +24,13 @@ class ImageController extends Controller
 
     public function profilPicture($id)
     {
+
+
         $pathImage = config('app.image_profil_path');
         $pathDefault = config('app.default_profil_path');
+
+        $user = User::find($id);
+
 
         switch ($id) {
 
@@ -39,7 +45,8 @@ class ImageController extends Controller
                 break;
 
             default :
-                $storagePath = storage_path($pathImage . $id . '/' . Auth::user()->image_name);
+                $storagePath = storage_path($pathImage . $id . '/' . $user->image_name);
+
 
         }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
+use App\User as mUser;
 
 
 class ProfilController extends Controller
@@ -25,12 +26,75 @@ class ProfilController extends Controller
      */
 
 
-    public function index(User $id)
+    public function index(Request $resquest, User $id)
     {
 
-        return view('profil')->with(['user' => $id]);
+        $not_friends = User::where('id', '!=', Auth::user()->id);
+        if (Auth::user()->friends->count()) {
+            $not_friends->whereNotIn('id', Auth::user()->friends->modelKeys());
+        }
+        $not_friends = $not_friends->get();
+
+        $any_friends = mUser::has('friends')->get();
+        if ($any_friends->count() == 0) {
+
+            $any_friends = true;
+        }
+
+
+        $host = $resquest->getSchemeAndHttpHost();
+
+        if ($id->image_name === null) {
+
+            //@TODO trouver solution pour les images
+
+            switch ($id->genre) {
+
+                case ('male') :
+                    $urlImg = $host . '/img/profil/m';
+                    break;
+                case ('female') :
+                    $urlImg = $host . '/img/profil/f';
+                    break;
+                case('other') :
+                    $urlImg = $host . '/img/profil/o';
+                    break;
+
+            }
+
+        } else {
+
+            $urlImg = $host . '/img/profil/' . $id->id;
+        }
+
+
+        return view('profil')->with([
+            'user' => $id,
+            'not_friends' => $not_friends,
+            'urlImg' => $urlImg,
+            'any_friend' => $any_friends
+        ]);
 
     }
+
+
+    public function getAddFriend($id)
+    {
+        $user = User::find($id);
+        Auth::user()->addFriend($user);
+        return back();
+    }
+
+    public function getRemoveFriend($id)
+    {
+        $user = User::find($id);
+        Auth::user()->removeFriend($user);
+        return back();
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\App;
 
 class User extends Authenticatable
 {
@@ -34,5 +35,28 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $table = 'users';
+
+
+    public function getFullName()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
+
+    public function friends()
+    {
+        return $this->belongsToMany(User::class, 'friends_users', 'user_id', 'friend_id');
+    }
+
+    public function addFriend($user)
+    {
+        $this->friends()->attach($user->id);
+    }
+
+    public function removeFriend($user)
+    {
+        $this->friends()->detach($user->id);
+    }
 
 }

@@ -51,7 +51,7 @@
                 <div class="input-field">
                     <input name="firstname" id="firstname" type="text" value="{{ old('firstname') }} " class="validate"
                            required>
-                    <label class="active" for="firstname">Nom</label>
+                    <label class="active" for="firstname">Prénom</label>
                     @if($errors->has('firstname'))<p>{{$errors->first('firstname') }}</p>@endif
                 </div>
             </div>
